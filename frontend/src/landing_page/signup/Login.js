@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { BACKEND_URL } from "../../constants";
+import { BACKEND_URL, DASHBOARD_URL } from "../../constants";
 
 const Login = () => {
   const [inputValue, setInputValue] = useState({
@@ -49,7 +49,7 @@ const Login = () => {
         handleSuccess(message);
 
         setTimeout(() => {
-          window.location.href = "http://localhost:3001";
+          window.location.href = DASHBOARD_URL;
         }, 1000);
       } else {
         handleError(message);

@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 
 import Dashboard from "./Dashboard";
 import Topbar from "./Topbar";
-import { BACKEND_URL } from "../constants";
+import { BACKEND_URL, FRONTEND_URL } from "../constants";
 
 const Home = () => {
   const [cookies, removeCookie] = useCookies([]);
@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = `${FRONTEND_URL}/login`;
         return;
       }
 
@@ -31,14 +31,14 @@ const Home = () => {
         if (!status) {
           removeCookie("token");
 
-          window.location.href = "http://localhost:3000/login";
+          window.location.href = `${FRONTEND_URL}/login`;
         }
       } catch (error) {
         console.log(error);
 
         removeCookie("token");
 
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = `${FRONTEND_URL}/login`;
       }
     };
 

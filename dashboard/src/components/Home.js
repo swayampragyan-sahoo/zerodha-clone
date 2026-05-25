@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 
 import Dashboard from "./Dashboard";
 import Topbar from "./Topbar";
+import { BACKEND_URL } from "../constants";
 
 const Home = () => {
   const [cookies, removeCookie] = useCookies([]);
@@ -18,7 +19,7 @@ const Home = () => {
 
       try {
         const { data } = await axios.post(
-          "http://localhost:3002",
+          BACKEND_URL,
           {},
           { withCredentials: true }
         );

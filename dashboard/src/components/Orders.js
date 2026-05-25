@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { BACKEND_URL } from "../constants";
 
 const Orders = () => {
   const [allOrders, setAllOrders] = useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:3002/allOrders").then((res)=>{
+    axios.get(`${BACKEND_URL}/allOrders`).then((res)=>{
       console.log(res.data);
       setAllOrders(res.data);
     })

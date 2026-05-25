@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { BACKEND_URL } from "../../constants";
 
 const Login = () => {
   const [inputValue, setInputValue] = useState({
@@ -35,7 +36,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/login",
+        `${BACKEND_URL}/login`,
         {
           ...inputValue,
         },

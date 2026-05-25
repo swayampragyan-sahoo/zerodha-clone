@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { BACKEND_URL } from "../constants";
 
 import axios from "axios";
 
@@ -12,7 +13,7 @@ const SellActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleSellClick = () => {
-    axios.post("http://localhost:3002/sellOrder", {
+    axios.post(`${BACKEND_URL}/sellOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

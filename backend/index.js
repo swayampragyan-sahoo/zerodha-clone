@@ -21,7 +21,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://zerodha-clone-vr7m.vercel.app/","https://zerodha-clone-ksv6.vercel.app/"],
+    origin: ["https://zerodha-clone-vr7m.vercel.app","https://zerodha-clone-ksv6.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -166,8 +166,10 @@ app.post("/signup", async (req, res, next) => {
     const user = await UserModel.create({ email, password, username, createdAt });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
+        withCredentials: true,
+        httpOnly: false,
+        secure: true,
+        sameSite: "None",
     });
     const { password: pass, ...others } = user._doc;
     res

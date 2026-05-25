@@ -320,8 +320,15 @@ app.get("/allOrders",async(req,res)=>{
     res.json(allOrders);
 })
 
-app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
-    mongoose.connect(uri);
+mongoose
+  .connect(uri)
+  .then(() => {
     console.log("DB Connected!");
-})
+
+    app.listen(PORT, () => {
+      console.log(`Server running on ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });

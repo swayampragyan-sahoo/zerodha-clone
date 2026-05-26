@@ -28,6 +28,10 @@ app.use(
 );app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.get("/",async(req,res)=>{
+    res.send("Working");
+})
+
 /*app.get("/addHoldings", async(req,res)=>{
     let tempHoldings=[
     {

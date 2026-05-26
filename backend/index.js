@@ -19,14 +19,16 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://zerodha-clone-g1pt.vercel.app","https://zerodha-clone-5zqi.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(cors({
+  origin: [
+    "https://zerodha-clone-g1pt.vercel.app",
+    "https://zerodha-clone-5zqi.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+app.use(cookieParser());
+app.use(express.json());
 
 app.get("/",async(req,res)=>{
     res.send("Working");

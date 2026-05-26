@@ -12,10 +12,6 @@ const Home = () => {
 
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token) {
-        window.location.href = `${FRONTEND_URL}/login`;
-        return;
-      }
 
       try {
         const { data } = await axios.post(

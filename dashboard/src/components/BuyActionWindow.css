@@ -164,12 +164,8 @@
   }
   
   .btn {
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 2px;
-    color: #fff;
-    margin-right: 2px;
-    margin-left: 2px;
+    border: none;
+    cursor: pointer;
   }
   
   .btn-grey {

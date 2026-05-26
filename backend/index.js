@@ -172,10 +172,9 @@ app.post("/signup", async (req, res, next) => {
     const user = await UserModel.create({ email, password, username, createdAt });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-        withCredentials: true,
-        httpOnly: false,
+        httpOnly: true,
         secure: true,
-        sameSite: "None",
+        sameSite: "none",
     });
     const { password: pass, ...others } = user._doc;
     res
